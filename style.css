@@ -9,6 +9,26 @@ body {
 	background-color: #181818;
 	font-family: "Roboto", sans-serif;
 }
+/* Width */
+body::-webkit-scrollbar {
+	width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #aaa;
+	border-radius: 5px;
+	padding: 2px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #4c4c4c;
+}
 
 header {
 	background-color: rgba(33, 33, 33, 0.95);
@@ -26,8 +46,12 @@ header {
 	align-items: center;
 	gap: 25px;
 }
+.logo svg {
+	cursor: pointer;
+}
 .logo-img {
 	width: 90px;
+	cursor: pointer;
 }
 
 .search-container {
@@ -53,41 +77,83 @@ header {
 	place-items: center;
 	cursor: pointer;
 }
+.search-container img {
+	width: 24px;
+}
 .search-icon {
 	width: 64px;
 }
+
 .search-container .audio-icon {
 	width: 40px;
 	border-radius: 50%;
 	background-color: #181818;
 	margin-left: 5px;
 }
+
 .account-options {
 	display: grid;
 	grid-auto-flow: column;
 	gap: 25px;
 }
-.account-options svg {
+.account-options img {
 	width: 24px;
+	cursor: pointer;
 }
 
-main {
-	display: grid;
-	grid-template-columns: auto 1fr;
-	gap: 20px;
-}
 aside {
-	width: 250px;
+	position: fixed;
+	width: 240px;
 	background-color: rgba(33, 33, 33, 0.95);
+	overflow-y: auto;
+	height: 100vh;
+	padding-right: 5px;
 }
 
+/* Width */
+aside::-webkit-scrollbar {
+	width: 8px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #4c4c4c;
+	border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #4c4c4c;
+}
+aside h5 {
+	margin-left: 24px;
+	font-size: 0.9rem;
+	color: #aaa;
+	margin-bottom: 10px;
+}
+
+.tabs {
+	padding: 10px 0;
+	border-bottom: 1px solid #383838;
+}
 .tab {
 	display: grid;
 	grid-template-columns: auto 1fr;
 	gap: 24px;
 	align-items: center;
-	padding: 0 24px;
 	height: 40px;
+	padding: 0 24px;
+}
+
+.tab.active {
+	background-color: #383838;
+}
+.tab:hover {
+	background-color: #4c4c4c;
 }
 .tab p {
 	font-size: 14px;
@@ -95,14 +161,26 @@ aside {
 	font-weight: 500;
 	line-height: 2;
 }
-.tab svg {
+
+.tab img {
 	width: 24px;
 }
-
+.video-tags {
+	margin-left: 240px;
+	display: grid;
+	grid-auto-flow: column;
+	padding: 15px 25px;
+	position: sticky;
+	top: 56px;
+	background-color: rgba(33, 33, 33, 0.95);
+	border: 1px solid #383838;
+}
 .videos-container {
+	padding-left: 250px;
+	padding-top: 25px;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(250px, 360px));
-	gap: 20px;
+	gap: 15px;
 	justify-content: center;
 }
 .video-box {
