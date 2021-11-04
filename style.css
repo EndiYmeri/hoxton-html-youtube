@@ -78,7 +78,6 @@ main {
 }
 aside {
 	width: 250px;
-	height: 100vh;
 	background-color: rgba(33, 33, 33, 0.95);
 }
 
@@ -103,10 +102,10 @@ aside {
 .videos-container {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(250px, 360px));
-	height: 100vh;
 	gap: 20px;
 	justify-content: center;
 }
 .video-box {
 	background-color: antiquewhite;
+	height: 300px;
 }
