@@ -31,14 +31,16 @@ body::-webkit-scrollbar {
 }
 
 header {
-	background-color: rgba(33, 33, 33, 0.95);
+	background-color: rgba(33, 33, 33, 0.98);
 	display: grid;
-	grid-auto-flow: column;
-	justify-content: space-between;
+	grid-template-columns: auto 1fr auto;
 	padding: 9px 25px;
+	justify-items: center;
 	align-items: center;
 	position: sticky;
 	top: 0;
+	gap: 20px;
+	z-index: 1;
 }
 .logo {
 	display: grid;
@@ -55,19 +57,26 @@ header {
 }
 
 .search-container {
-	max-width: 728px;
+	max-width: 676px;
 	width: 100%;
 	display: grid;
-	grid-auto-flow: column;
+	grid-template-columns: 1fr auto auto;
+	justify-items: center;
 }
 .search-container input {
-	width: 572px;
+	width: 100%;
+	max-width: 572px;
 	padding: 10px 20px;
 	background-color: #181818;
 	color: hsla(0, 100%, 100%, 0.88);
-	border: none;
+	border: 0.1px solid transparent;
 	outline: none;
 	font-size: 1rem;
+	transition: all 0.2s ease-in-out;
+}
+
+.search-container input:focus {
+	border: 0.1px solid rgb(70, 70, 255);
 }
 .search-container button {
 	background-color: hsla(0, 0%, 100%, 0.08);
@@ -103,11 +112,11 @@ header {
 
 aside {
 	position: fixed;
-	width: 240px;
 	background-color: rgba(33, 33, 33, 0.95);
 	overflow-y: auto;
 	height: 100vh;
-	padding-right: 5px;
+	padding-right: 15px;
+	width: 240px;
 }
 
 /* Width */
@@ -140,20 +149,23 @@ aside h5 {
 	padding: 10px 0;
 	border-bottom: 1px solid #383838;
 }
+
 .tab {
 	display: grid;
 	grid-template-columns: auto 1fr;
 	gap: 24px;
 	align-items: center;
-	height: 40px;
-	padding: 0 24px;
+	padding: 6px 24px;
 }
 
 .tab.active {
-	background-color: #383838;
+	background-color: #4c4c4c;
 }
 .tab:hover {
-	background-color: #4c4c4c;
+	background-color: #383838;
+}
+.tab.library {
+	display: none;
 }
 .tab p {
 	font-size: 14px;
@@ -169,21 +181,224 @@ aside h5 {
 	margin-left: 240px;
 	display: grid;
 	grid-auto-flow: column;
-	padding: 15px 25px;
+	padding: 13px 25px;
 	position: sticky;
 	top: 56px;
 	background-color: rgba(33, 33, 33, 0.95);
 	border: 1px solid #383838;
+	gap: 10px;
+	border-left: none;
+	border-right: none;
+	overflow-x: auto;
+	z-index: 1;
 }
+.tag {
+	color: white;
+	background-color: #383838;
+	border-radius: 20px;
+	text-align: center;
+	padding: 6px 13px;
+	cursor: pointer;
+	width: max-content;
+	font-size: 0.9rem;
+	transition: all 0.2s ease-in-out;
+}
+.tag.active {
+	color: #030303;
+	background-color: #fff;
+}
+.tag:hover {
+	background-color: #4c4c4c;
+}
+/* Width */
+.video-tags::-webkit-scrollbar {
+	height: 1px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #4c4c4c;
+	border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #4c4c4c;
+}
+
 .videos-container {
-	padding-left: 250px;
-	padding-top: 25px;
+	padding: 25px;
+	padding-left: 275px;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 360px));
-	gap: 15px;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 23%));
 	justify-content: center;
+	justify-items: center;
+	gap: 1%;
 }
 .video-box {
-	background-color: antiquewhite;
-	height: 300px;
+	width: 100%;
+	display: grid;
+	grid-template-rows: 1fr auto;
+	height: 100%;
+	min-height: 250px;
+	min-width: 240px;
+	max-height: 315px;
+}
+
+.video-box .video {
+	background-image: url("https://i.ytimg.com/vi/dQw4w9WgXcQ/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAfut6ib46TKYWnNm5PxBrcX8HLWg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+.video a {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+}
+.video-box .info {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 20px;
+	padding-top: 10px;
+}
+
+.account-image img {
+	width: 36px;
+	border-radius: 18px;
+}
+.title-account > a {
+	text-decoration: none;
+	color: #fff;
+	font-weight: 600;
+	font-size: 1rem;
+	cursor: pointer;
+}
+.title-account,
+.account a {
+	color: #aaa;
+	font-size: 0.9rem;
+	text-decoration: none;
+}
+.title-account .account {
+	margin: 5px 0;
+}
+
+footer {
+	display: none;
+}
+@media screen and (max-width: 1315px) {
+	aside {
+		padding-right: 0px;
+		width: auto;
+	}
+	.tabs {
+		display: grid;
+		gap: 25px;
+		border: none;
+	}
+	.tab {
+		grid-template-columns: auto;
+		gap: 5px;
+		padding: 0 5px;
+		justify-items: center;
+	}
+	.tab p {
+		font-size: 10px;
+	}
+
+	.tab.library {
+		display: grid;
+	}
+	.tabs h5,
+	.tabs.playlists,
+	.tabs.subscriptions,
+	.tabs.more,
+	.tabs.settings {
+		display: none;
+	}
+	.video-tags {
+		margin-left: 72px;
+	}
+	.videos-container {
+		padding: 20px;
+		padding-left: 92px;
+	}
+}
+
+@media screen and (max-width: 850px) {
+	header {
+		gap: 0;
+		padding: 11px 12px;
+		top: -1px;
+	}
+	.search-container img,
+	.account-options img {
+		width: 20px;
+	}
+	.search-container {
+		justify-items: end;
+	}
+	.search-container .search-icon {
+		background-color: transparent;
+	}
+	.logo svg,
+	.search-container .audio-icon,
+	.search-container input,
+	aside {
+		display: none;
+	}
+
+	.videos-container {
+		grid-template-columns: repeat(auto-fit, minmax(240px, 360px));
+		padding: 10px;
+		justify-content: center;
+		justify-items: center;
+		gap: 15px;
+	}
+	.video-box {
+		max-width: 99%;
+	}
+
+	.video-tags {
+		margin-left: 0;
+		top: 40px;
+		padding: 5px 10px;
+	}
+	.tag {
+		font-size: 0.8rem;
+	}
+
+	.video-box a {
+		font-size: 0.7rem;
+	}
+	.video-box .account {
+		margin: 2px 0;
+	}
+	.video-box p {
+		display: inline-block;
+		margin-left: 10px;
+		font-size: 0.7rem;
+	}
+	footer {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		justify-content: space-evenly;
+		position: sticky;
+		bottom: 0;
+		width: 100%;
+		background-color: #181818;
+		padding: 5px 15px;
+	}
+	.tab img {
+		width: 20px;
+	}
+	.tab p {
+		font-size: 0.6rem;
+		line-height: 1.2;
+	}
 }
