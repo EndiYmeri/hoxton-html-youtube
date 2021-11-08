@@ -192,6 +192,7 @@ aside h5 {
 	overflow-x: auto;
 	z-index: 1;
 }
+
 .tag {
 	color: white;
 	background-color: #383838;
@@ -260,7 +261,7 @@ aside h5 {
 	height: 100%;
 	width: 100%;
 }
-.video-box .info {
+.info {
 	display: grid;
 	grid-template-columns: auto 1fr;
 	gap: 20px;
@@ -291,6 +292,72 @@ aside h5 {
 footer {
 	display: none;
 }
+
+/* Video Page */
+.video-page {
+	display: grid;
+	grid-template-columns: 75% 24%;
+	padding: 20px 1%;
+	gap: 1%;
+	width: 100%;
+	max-width: 1900px;
+	margin: auto;
+}
+.video-page .container h1 {
+	color: white;
+	font-size: 1.5rem;
+	margin: 20px 0;
+}
+.video-page .container p {
+	color: #aaa;
+	font-size: 1rem;
+}
+.video-page .container .video-title {
+	padding-bottom: 20px;
+	border-bottom: 1px solid #383838;
+}
+
+.container .info {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #383838;
+}
+.container .info .extra-info {
+	color: white;
+	padding: 50px 0;
+	width: 50ch;
+}
+
+.video-page .container .info a {
+	color: white;
+	font-size: 1.1rem;
+	font-weight: 500;
+}
+.video-page iframe {
+	width: 100%;
+	height: 70vh;
+}
+
+.sidebar .video-tags {
+	background-color: transparent;
+	border: none;
+}
+.sidebar .video-tags {
+	margin-left: 0;
+}
+
+.video-page .videos-container {
+	padding: 20px 0 0 0;
+	grid-template-columns: auto;
+	gap: 25px;
+}
+.video-page .video-box {
+	display: grid;
+	grid-template-columns: 50% 48%;
+	gap: 2%;
+	min-height: unset;
+}
+
+/* End */
 @media screen and (max-width: 1315px) {
 	aside {
 		padding-right: 0px;
@@ -327,6 +394,21 @@ footer {
 	.videos-container {
 		padding: 20px;
 		padding-left: 92px;
+	}
+	.video-page {
+		display: grid;
+		grid-template-columns: auto;
+		width: 90%;
+	}
+	.video-page .videos-container {
+		grid-template-columns: repeat(auto-fit, minmax(240px, 360px));
+		padding: 10px;
+		justify-content: center;
+		justify-items: center;
+		gap: 15px;
+	}
+	.sidebar {
+		width: 90vw;
 	}
 }
 
